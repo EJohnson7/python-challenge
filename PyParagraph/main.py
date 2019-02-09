@@ -1,30 +1,25 @@
 import os
 import re
-
-words = []
-wordcount = 0
+letters = []
+characters = []
 # Read file in path
-paragraph = os.path.join("paragraph.txt")
+paragraph = os.path.join("raw_data/paragraph_1.txt")
 with open(paragraph, 'r') as textfile:
-    data = textfile.read(delimiter= " ")
-    
-    for x in data:
-        s = data.split(" ")
-        words.append(s)
-        #print(s)
-    u = len(words)
-    #print(data)
-
-    for x in words:
-        wordcount = wordcount + 1
-print((data))
-    
-# Store Words into List
-# Store Letters and only letters
-# Store Sentences delimited by periods or other sentence endings into list
-# 
-#  
+    data = textfile.read()
+    # Word Count
+    w = len(data.split(" "))
+    s = len(re.split("(?<=[.!?]) +", data))
+    ws = (w) / (s)
+    letters = len(re.findall('[A-Za-z]', data))
+    averageletters = letters / (w)
+ 
 # Word Count
 # Sentence Count
 # Letter Count
 # Sentence Length
+print("Paragraph Analysis")
+print ("-----------------")
+print ("Approximate Word Count: " + str(w))
+print ("Approximate Sentence Count: " + str(s))
+print ("Average Letter Count: " + str(averageletters))
+print ("Average Sentence Length: " + str(ws))
