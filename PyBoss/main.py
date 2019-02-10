@@ -1,9 +1,9 @@
-# Dependencies
+# Import Dependencies
 import os
 import csv
 import pathlib
 
-#Dictionary for State
+#Dictionary for States 
 us_state_abbrev = {
     'AL': 'Alabama',
     'AK': 'Alaska',
@@ -64,6 +64,7 @@ Name = []
 DOB = []
 SSN = []  
 State = []
+
 # Declare Lists to CSV
 FirstName = []
 LastName = []
@@ -82,7 +83,7 @@ StateFull = []
 StateOut = []
 
 
-# Split Dictionary into two lists for use
+# Split Dictionary into two lists to be able to lookup keys
 for key, value in us_state_abbrev.items():
     temp = [key,value]
     StateAbbr.append(temp[0])
@@ -91,6 +92,7 @@ for key, value in us_state_abbrev.items():
 
 # path
 data_csv = os.path.join("employee_data.csv")
+
 # Open and read csv
 with open(data_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
@@ -129,9 +131,7 @@ with open(data_csv, newline="") as csvfile:
         index = StateFull.index(Employeestate)
         StateOut.append(StateAbbr[index])
 
-# Zip all the Lists together
-#roster = zip(indexes, employees, department)
-    #EmployeeCorrectedDOB = 
+# Zip all the Lists together 
     Employee = zip(Emp, FirstName, LastName, EmpCorrDOB, SSNCorrect, StateOut)
 
 
