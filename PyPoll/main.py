@@ -9,18 +9,18 @@ count = []
 cand = []
 Percentage = []
 greatest = 0
-#myDict = {}
+
+
 # path
 vote_csv = os.path.join("..", "Resources", "election_data.csv")
 # Open and read csv
+
 with open(vote_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     
 # Read the header row first     
     csv_header = next(csvfile)
-
-#Print header
-    #print(f"Header: {csv_header}")
+    
 # Read through each row of data after the header
     for row in csvreader:
         Votes.append(row[2])

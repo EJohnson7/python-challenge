@@ -17,7 +17,7 @@ with open(paragraph, 'r') as textfile:
     ws = (w) / (s)
     # Letter Count
     letters = len(re.findall('[A-Za-z]', data))
-    # Letters per Word
+    # Letters per Word rounded
     averageletters = round(letters / (w), 1)
  
 # Print Analysis
